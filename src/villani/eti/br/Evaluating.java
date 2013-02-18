@@ -63,7 +63,7 @@ public class Evaluating {
 					if(classificador.equals("mulan.classifier.lazy.BRkNN") && !brknn) continue;
 					if(classificador.equals("mulan.classifier.transformation.ClassifierChain") && !chain) continue;
 
-					String subBase = id + "-" + tecnica + "-Sub" + 0 + "-" + eixo;
+					String subBase = id + tecnica + "-Sub" + 0 + "-" + eixo;
 
 					Instances instancias = null;
 					try{
@@ -148,7 +148,7 @@ public class Evaluating {
 
 					for(int i = 1; i < 10; i++){
 
-						String subBaseTeste = id + "-" + tecnica + "-Sub" + i + "-" + eixo;
+						String subBaseTeste = id + tecnica + "-Sub" + i + "-" + eixo;
 
 						try{
 							log.write(" - Desserializando instancias a partir da sub-base " + subBaseTeste);
@@ -196,10 +196,9 @@ public class Evaluating {
 						}
 
 						log.write(" - Salvando resultado da avaliação");
-						File resultado = new File(subBaseTeste + ".result");
+						File resultado = new File(classificador + "-" + subBaseTeste + ".csv");
 						try{
 							FileWriter escritor = new FileWriter(resultado);
-							escritor.write("=> Avaliação do " + classificador + "\n\n");
 							escritor.write(avaliacao.toString());
 							escritor.close();
 						} catch(IOException ioe){

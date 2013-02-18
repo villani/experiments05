@@ -18,14 +18,20 @@ public class Main {
 	public static void main(String[] args) {
 
 		Calendar data = Calendar.getInstance();
-		id = "Experiments05-Exe" + 
+		id = "Exe" + 
 				data.get(Calendar.YEAR) + 
 				(data.get(Calendar.MONTH)+1) + 
 				data.get(Calendar.DAY_OF_MONTH) +
 				data.get(Calendar.HOUR_OF_DAY) +
 				data.get(Calendar.MINUTE);
+		
+		File diretorio = new File(id);
+		
+		diretorio.mkdir();
+		
+		id = diretorio + "/";
 
-		log = new LogBuilder(id + ".log");
+		log = new LogBuilder(id + "Execucao.log");
 
 		log.write("Iniciando " + id + ":");
 

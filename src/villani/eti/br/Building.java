@@ -31,7 +31,7 @@ public class Building {
 				for(int i = 0; i < 10; i++){
 
 					String base = tecnica + "/" + tecnica + "-Sub" + i + ".arff";
-					String subBase = id + "-" + tecnica + "-Sub" + i + "-" + eixo;
+					String subBase = id + tecnica + "-Sub" + i + "-" + eixo;
 					MultiLabelInstances mlData = null;
 
 					try{
